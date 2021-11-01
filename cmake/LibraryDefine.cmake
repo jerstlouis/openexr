@@ -10,7 +10,9 @@ function(OPENEXR_DEFINE_LIBRARY libname)
   cmake_parse_arguments(OPENEXR_CURLIB "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
   if (MSVC)
-    set(_openexr_extra_flags "/EHsc")
+    set(_openexr_extra_flags "/EHsc"
+                             "/wd4244" # conversion that may lose data
+                             "/wd4267") # size_t -> smaller type
   endif()
   set(objlib ${libname})
   add_library(${objlib}
