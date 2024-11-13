@@ -51,6 +51,7 @@
 #include "ImfForward.h"
 
 #include <cstddef>
+#include <cstdint>
 #include <vector>
 
 
